@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body onload="runWebGL()">
+<div style="float: left; margin-left: 95px;"><img src="cubeTexture.png" border="0" alt="Tekstura #1" title="Tekstura #1" width="100" height="100" /></div>
+<div style="float: left; margin: 0 10px;"><img src="cubeTexture2.png" border="0" alt="Tekstura #2" title="Tekstura #2" width="100" height="100" /></div>
+<div style="float: left; margin: 0;"><img src="cubeTexture3.png" border="0" alt="Tekstura #3" title="Tekstura #3" width="100" height="100" /></div>
+    <div >
+        <br /><br /><br />
+        <form class="rotationCheckboxes">
+            <input type="checkbox" id="img1" checked> Tekstura #1&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="img2"> Tekstura #2&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="img3"> Tekstura #3
+        </form> <br />
+
+        <form class="rotationCheckboxes">
+            <input type="checkbox" id="rotateX"> Rotacja X&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="rotateY"> Rotacja Y&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" id="rotateZ"> Rotacja Z
+        </form>
+        <br />
+    <canvas id="glcanvas" width="500" height="300">Brak wsparcia dla elementu HTML5 typu canvas.</canvas>
+    <input type="button" value="Uruchom" onclick="runWebGL()"/>
+    <input type="button" value="Zamknij" onclick="self.close()"/>
+</div>
+<script src="js/main2.js"></script>
+<script src="js/matrix.js"></script>
+</body>
+</html>
