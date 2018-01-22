@@ -109,15 +109,6 @@ function gl_initShaders () {
 }
 
 function gl_initBuffers () {
-    // Point coordinates array of the triangle
-//   var triangleVertices = [
-//      -1, -1, 0,    // bottom left
-//       0, 0, 1,      // submit color: blue
-//       1, -1, 0,    // bottom right
-//       1, 1, 1,      // submit color: white
-//       1, 1, 0,     // top right
-//       1, 0, 0       // submit color: red
-//   ];
     var triangleVertices = [
         1, 1, 1,    0, 0,
         -1, -1, 1,    1, 0,
@@ -140,9 +131,6 @@ function gl_initBuffers () {
     gl_ctx.bindBuffer(gl_ctx.ARRAY_BUFFER, _triangleVertexBuffer);
     gl_ctx.bufferData(gl_ctx.ARRAY_BUFFER, new Float32Array(triangleVertices), gl_ctx.STATIC_DRAW);
 
-
-    // Triangle faces array
-    // var triangleFaces = [0, 1, 2];
     var triangleFaces = [
         0,1,2,
          3,4,5,
@@ -210,20 +198,13 @@ function gl_draw() {
             gl_ctx.bindTexture(gl_ctx.TEXTURE_2D, _cubeTexture.webglTexture);
         }
 
-
         gl_ctx.vertexAttribPointer(_position, 3, gl_ctx.FLOAT, false, 4*(2+3), 0);
         gl_ctx.vertexAttribPointer(_uv, 2, gl_ctx.FLOAT, false, 4*(2+3), 3*4);
-
 
         gl_ctx.bindBuffer(gl_ctx.ARRAY_BUFFER, _triangleVertexBuffer);
         gl_ctx.bindBuffer(gl_ctx.ELEMENT_ARRAY_BUFFER, _triangleFacesBuffer);
 
-        // draw the triangle
-        //gl_ctx.drawElements(gl_ctx.TRIANGLES, 3, gl_ctx.UNSIGNED_SHORT, 0);
-
-        // draw cube
         gl_ctx.drawElements(gl_ctx.TRIANGLES, 4*3, gl_ctx.UNSIGNED_SHORT, 0);
-
 
         gl_ctx.flush();
 
